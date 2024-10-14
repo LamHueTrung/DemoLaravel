@@ -52,7 +52,7 @@
                             <h3>Thêm Lớp</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('classrooms.store') }}" method="POST">
+                            <form action="" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="categoryName">Mã Lớp:</label>
@@ -64,10 +64,16 @@
                                 <div class="form-group">
                                     <label for="categoryName">Tên Lớp:</label>
                                     <input type="text" class="form-control" name="NameClass" placeholder="Nhập tên lớp" required>
+                                    @if ($errors->has('IdClass'))
+                                        <span class="text-danger">{{ $errors->first('NameClass') }}</span> <!-- Hiển thị thông báo lỗi -->
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="categoryName">Ghi Chú:</label>
                                     <input type="text" class="form-control" name="Note" placeholder="Nhập ghi chú" required>
+                                    @if ($errors->has('IdClass'))
+                                        <span class="text-danger">{{ $errors->first('Note') }}</span> <!-- Hiển thị thông báo lỗi -->
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <input class="btn btn-sm btn-success" type="submit" name="add" value="Save">
